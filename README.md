@@ -5,7 +5,7 @@ This project was adapted from the following [CFVIZ](https://github.com/benbc/clo
 
 **Note:** Serverless *v1.x.x* or higher is required.
 
-###Get Started
+### Get Started
 
 * `npm install --save serverless-graph`
 * Add serverless-graph to your plugins section of the project
