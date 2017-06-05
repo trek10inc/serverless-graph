@@ -1,0 +1,40 @@
+{
+  "name": "serverless-graph",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=4.0"
+  },
+  "description": "Serverless Graph - A plugin for creating a graph usable by graphviz.",
+  "author": "Ken Winner",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trek10/serverless-graph"
+  },
+  "keywords": [
+    "serverless graph",
+    "serverless graph plugin",
+    "serverless applications",
+    "serverless plugins",
+    "api gateway",
+    "lambda",
+    "aws",
+    "aws lambda",
+    "amazon",
+    "amazon web services",
+    "serverless.com"
+  ],
+  "main": "index.js",
+  "bin": {},
+  "scripts": {
+    "test": "mocha tests/all"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "bluebird": "^3.0.6",
+    "lodash": "^4.17.4"
+  }
+}
