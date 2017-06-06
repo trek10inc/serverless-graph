@@ -6,7 +6,7 @@ This project was adapted from the following [CFVIZ](https://github.com/benbc/clo
 **Note:** Serverless *v1.x.x* or higher is required.
 
 ### Get Started
-* cd into your new plugin and run:
+* cd into serverless-graph and run:
 ```
 npm link
 ```
