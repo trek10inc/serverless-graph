@@ -20,10 +20,12 @@ npm link serverless-graph
 
 ### Run
 If you have any commandline params that don't have defaults you will have to pass in any opt variables as this plugin hooks into the package step and then reads the output
-* `sls graph {--opts} | dot -Tsvg -oexample.svg`
+* `sls graph {--opts}`
+* `cat graph.out | dot -Tsvg -oexample.svg`
 
 ### TODO: Getting started - make npm package
 * `npm install --save serverless-graph`
 * Add serverless-graph to your plugins section of the project
 * Install graphviz
   * Homebrew - brew install graphviz
+* `sls graph {--opts} | dot -Tsvg -oexample.svg`
