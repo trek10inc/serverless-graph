@@ -60,8 +60,9 @@ class ServerlessGraph {
       var pseudoSubgraph = lib.handlePseudoParams(graph['edges'], serverless)
       graph['subgraphs'].push(pseudoSubgraph)
 
-      // serverless.cli.consoleLog(graph);
+      serverless.cli.log("Rendering graph...");
       lib.renderGraph(graph)
+      serverless.cli.log("Graph saved to graph.out.");
     });
   }
 }
