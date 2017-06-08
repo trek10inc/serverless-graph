@@ -16,17 +16,16 @@ class ServerlessGraph {
 
     this.commands = {
       graph: {
-        usage: "Creates a graph representation of the output for use with tools like graphviz.",
+        usage: "Creates graphviz compatible graph output of nodes and edges. Saves to graph.out file.",
         lifecycleEvents: [
           'graph',
         ],
         options: {
           horizontal: {
-            usage: 'Graph nodes from left to right instead of top down.',
-            shortcut: 'l',
+            usage: 'Graph nodes from left to right instead of top down.'
           },
           edgelabels: {
-            usage: 'Whether or not to display edgelabels',
+            usage: 'Display edgelabels in graph.',
             shortcut: 'e',
           }
         }

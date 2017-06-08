@@ -6,15 +6,7 @@ This project was adapted from [CFVIZ](https://github.com/benbc/cloud-formation-v
 **Note:** Serverless *v1.x.x* or higher is required.
 
 ### Get Started
-* cd into serverless-graph and run:
-```
-npm link
-```
-
-* cd into your Serverless Project's root folder and run:
-```
-npm link serverless-graph
-```
+* `npm install --save serverless-graph`
 * Install graphviz
   * Homebrew - brew install graphviz
 * Add serverless-graph to the plugins section of your serverless.yml
@@ -27,10 +19,3 @@ If you have any commandline params that don't have defaults you will have to pas
 * Output PNG
   * `cat graph.out | dot -Tpng -oexample.png`
 * See [Graphviz](http://www.graphviz.org/pdf/dot.1.pdf) for more information.
-
-### TODO: Getting started - make npm package
-* `npm install --save serverless-graph`
-* Add serverless-graph to the plugins section of your serverless.yml
-* Install graphviz
-  * Homebrew - brew install graphviz
-* `sls graph {--opts} | dot -Tsvg -oexample.svg`
