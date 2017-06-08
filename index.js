@@ -19,7 +19,13 @@ class ServerlessGraph {
         usage: "Creates a graph representation of the output for use with tools like graphviz.",
         lifecycleEvents: [
           'graph',
-        ]
+        ],
+        options: {
+          edgelabels: {
+            usage: 'Whether or not to display edgelabels',
+            shortcut: 'e',
+          }
+        }
       }
     };
 
@@ -41,6 +47,8 @@ class ServerlessGraph {
     const currentDir = process.cwd();
     const serverless = this.serverless;
 
+    const displayEdgelabels = this.options.edgelabels;
+
     fs.readFile(`${currentDir}/.serverless/cloudformation-template-update-stack.json`, 'utf8', function(err, data) {
       if (err) {
         const errorMessage = [
@@ -58,7 +66,7 @@ class ServerlessGraph {
       lib.handleTerminals(template, graph, 'Parameters', 'source')
 
       serverless.cli.log("Rendering graph...");
-      lib.renderGraph(graph)
+      lib.renderGraph(graph, displayEdgelabels)
       serverless.cli.log("Graph saved to graph.out.");
     });
   }
