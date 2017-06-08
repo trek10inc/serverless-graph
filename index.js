@@ -21,6 +21,10 @@ class ServerlessGraph {
           'graph',
         ],
         options: {
+          horizontal: {
+            usage: 'Graph nodes from left to right instead of top down.',
+            shortcut: 'l',
+          },
           edgelabels: {
             usage: 'Whether or not to display edgelabels',
             shortcut: 'e',
@@ -47,7 +51,7 @@ class ServerlessGraph {
     const currentDir = process.cwd();
     const serverless = this.serverless;
 
-    const displayEdgelabels = this.options.edgelabels;
+    var options = this.options;
 
     fs.readFile(`${currentDir}/.serverless/cloudformation-template-update-stack.json`, 'utf8', function(err, data) {
       if (err) {
@@ -66,7 +70,7 @@ class ServerlessGraph {
       lib.handleTerminals(template, graph, 'Parameters', 'source')
 
       serverless.cli.log("Rendering graph...");
-      lib.renderGraph(graph, displayEdgelabels)
+      lib.renderGraph(graph, options)
       serverless.cli.log("Graph saved to graph.out.");
     });
   }
