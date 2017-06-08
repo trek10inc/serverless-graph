@@ -57,9 +57,6 @@ class ServerlessGraph {
       graph.edges = graph.edges.concat(obj.edges);
       lib.handleTerminals(template, graph, 'Parameters', 'source')
 
-      var pseudoSubgraph = lib.handlePseudoParams(graph['edges'], serverless)
-      graph['subgraphs'].push(pseudoSubgraph)
-
       serverless.cli.log("Rendering graph...");
       lib.renderGraph(graph)
       serverless.cli.log("Graph saved to graph.out.");
