@@ -4,7 +4,7 @@
   "engines": {
     "node": ">=4.0"
   },
-  "description": "Serverless Graph - A plugin for creating a graph usable by graphviz.",
+  "description": "Serverless Graph - A serverless plugin for creating a graph usable by graphviz.",
   "author": "Ken Winner",
   "license": "MIT",
   "repository": {
