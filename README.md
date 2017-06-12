@@ -26,3 +26,12 @@ If you have any commandline params that don't have defaults you will have to pas
 * Output PNG
   * `cat graph.out | dot -Tpng -oexample.png`
 * See [Graphviz](http://www.graphviz.org/pdf/dot.1.pdf) for more information.
+
+### Options (--help)
+
+```
+Plugin: ServerlessGraph
+graph ......................... Creates graphviz compatible graph output of nodes and edges. Saves to graph.out file.
+    --horizontal ....................... Graph nodes from left to right instead of top down.
+    --edgelabels / -e .................. Display edgelabels in graph.
+```
