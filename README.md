@@ -4,6 +4,14 @@ This project was adapted from [CFVIZ](https://github.com/benbc/cloud-formation-v
 
 **Note:** Serverless *v1.x.x* or higher is required.
 
+### Example Output
+
+![Example Generated Graph](https://user-images.githubusercontent.com/1689118/27042562-5a36cd72-4f65-11e7-813f-c3bfa6326ca2.png)
+
+### Why?
+
+Sometimes this is the fastest way to just visualize everything going on, it can also be extremely helpful in debugging circular dependency issues in CloudFormation templates.
+
 ### Get Started
 * `npm install --save serverless-graph`
 * Install graphviz
