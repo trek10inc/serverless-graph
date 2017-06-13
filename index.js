@@ -3,8 +3,6 @@
 const path    = require('path'),
     fs        = require('fs'),
     BbPromise = require('bluebird'),
-    lib       = require('./lib'),
-    _         = require('lodash'),
     CFGraph   = require('cloudformation-graph');
 
 class ServerlessGraph {
@@ -53,7 +51,7 @@ class ServerlessGraph {
 
   graph() {
     const currentDir = process.cwd();
-    const serverless = this.serverless;
+    var serverless = this.serverless;
 
     var options = this.options;
     options.outFile = options.outFile || 'graph.out'
@@ -65,7 +63,7 @@ class ServerlessGraph {
       serverless.cli.log("Rendering graph...");
       let graph = cfGraph.graph(fileName);
       fs.writeFileSync(this.options.outFile, graph)
-      serverless.cli.log("Graph saved to ${this.options.outFile}");
+      serverless.cli.log(`Graph saved to ${this.options.outFile}`);
     } catch (e) {
       throw new serverless.classes.Error(e.message)
     }

@@ -31,7 +31,6 @@
   },
   "dependencies": {
     "cloudformation-graph": "^1.0.0",
-    "bluebird": "^3.0.6",
-    "lodash": "^4.17.4"
+    "bluebird": "^3.0.6"
   }
 }
