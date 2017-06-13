@@ -27,13 +27,10 @@
   "main": "index.js",
   "bin": {},
   "scripts": {
-    "test": "mocha tests/all"
-  },
-  "devDependencies": {
-    "chai": "^3.2.0",
-    "mocha": "^2.2.5"
+    "test": "echo No tests here"
   },
   "dependencies": {
+    "cloudformation-graph": "^1.0.0",
     "bluebird": "^3.0.6",
     "lodash": "^4.17.4"
   }

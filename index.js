@@ -4,7 +4,8 @@ const path    = require('path'),
     fs        = require('fs'),
     BbPromise = require('bluebird'),
     lib       = require('./lib'),
-    _         = require('lodash');
+    _         = require('lodash'),
+    CFGraph   = require('cloudformation-graph');
 
 class ServerlessGraph {
   constructor(serverless, options) {
@@ -27,6 +28,10 @@ class ServerlessGraph {
           edgelabels: {
             usage: 'Display edgelabels in graph.',
             shortcut: 'e',
+          },
+          outFile: {
+            usage: 'Output file, defaults to graph.out',
+            shortcut: 'o'
           }
         }
       }
@@ -51,27 +56,20 @@ class ServerlessGraph {
     const serverless = this.serverless;
 
     var options = this.options;
+    options.outFile = options.outFile || 'graph.out'
+    let fileName = `${currentDir}/.serverless/cloudformation-template-update-stack.json`;
 
-    fs.readFile(`${currentDir}/.serverless/cloudformation-template-update-stack.json`, 'utf8', function(err, data) {
-      if (err) {
-        const errorMessage = [
-          `The file "cloudformation-template-update-stack.json" could not be opened.`,
-          `${err}`,
-        ].join('\n');
-
-        throw new serverless.classes.Error(errorMessage);
-      }
-
-      const template = JSON.parse(data);
-      var obj = lib.extractGraph(template.Description, template.Resources, serverless)
-      var graph = obj.graph;
-      graph.edges = graph.edges.concat(obj.edges);
-      lib.handleTerminals(template, graph, 'Parameters', 'source')
-
+    let cfGraphOptions = this.options;
+    let cfGraph = new CFGraph(cfGraphOptions);
+    try {
       serverless.cli.log("Rendering graph...");
-      lib.renderGraph(graph, options)
-      serverless.cli.log("Graph saved to graph.out.");
-    });
+      let graph = cfGraph.graph(fileName);
+      fs.writeFileSync(this.options.outFile, graph)
+      serverless.cli.log("Graph saved to ${this.options.outFile}");
+    } catch (e) {
+      throw new serverless.classes.Error(e.message)
+    }
+    return
   }
 }
 
