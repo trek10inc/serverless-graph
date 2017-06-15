@@ -1,9 +1,9 @@
 'use strict';
 
-const path    = require('path'),
-    fs        = require('fs'),
-    BbPromise = require('bluebird'),
-    CFGraph   = require('cloudformation-graph');
+const path = require('path'),
+  fs = require('fs'),
+  BbPromise = require('bluebird'),
+  CFGraph = require('cloudformation-graph');
 
 class ServerlessGraph {
   constructor(serverless, options) {
@@ -20,12 +20,16 @@ class ServerlessGraph {
           'graph',
         ],
         options: {
-          horizontal: {
-            usage: 'Graph nodes from left to right instead of top down.'
+          vertical: {
+            usage: 'Graph nodes from top down instead of left to right.'
           },
           edgelabels: {
             usage: 'Display edgelabels in graph.',
-            shortcut: 'e',
+            shortcut: 'e'
+          },
+          clarity: {
+            usage: 'By default we show everything, clarity mode will attempt to remove implied nodes and edges for a better graph',
+            shortcut: 'c'
           },
           outFile: {
             usage: 'Output file, defaults to graph.out',
@@ -37,12 +41,12 @@ class ServerlessGraph {
 
     this.hooks = {
       'before:graph:graph': () => BbPromise.bind(this)
-      .then(() => {
-        if (!this.options.package && !this.serverless.service.package.path) {
-          return this.serverless.pluginManager.spawn('package');
-        }
-        return BbPromise.resolve();
-      }),
+        .then(() => {
+          if (!this.options.package && !this.serverless.service.package.path) {
+            return this.serverless.pluginManager.spawn('package');
+          }
+          return BbPromise.resolve();
+        }),
 
       'graph:graph': () => BbPromise.bind(this)
         .then(this.graph),

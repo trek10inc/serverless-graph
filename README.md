@@ -6,7 +6,13 @@ This project was adapted from [CFVIZ](https://github.com/benbc/cloud-formation-v
 
 ### Example Output
 
-![Example Generated Graph](https://user-images.githubusercontent.com/1689118/27042562-5a36cd72-4f65-11e7-813f-c3bfa6326ca2.png)
+![Example Generated Graph](https://user-images.githubusercontent.com/1689118/27201203-d700053a-51ea-11e7-8aae-91de39820e41.png)
+
+#### Clarity Mode Graph
+
+We built in a "clarity" mode, that attempts to remove a lot of boilerplate serverless stuff (permissions, lambda versions, etc) in order to increase understanding. The above graph is show here in clarity mode.
+
+![Example Clarity Mode Generated Graph](https://user-images.githubusercontent.com/1689118/27201314-394b0226-51eb-11e7-9595-0577107fb4a0.png)
 
 ### Why?
 
@@ -32,6 +38,8 @@ If you have any commandline params that don't have defaults you will have to pas
 ```
 Plugin: ServerlessGraph
 graph ......................... Creates graphviz compatible graph output of nodes and edges. Saves to graph.out file.
-    --horizontal ....................... Graph nodes from left to right instead of top down.
+    --vertical ......................... Graph nodes from top down instead of left to right.
     --edgelabels / -e .................. Display edgelabels in graph.
+    --clarity / -c ..................... By default we show everything, clarity mode will attempt to remove implied nodes and edges for a better graph
+    --outFile / -o ..................... Output file, defaults to graph.out
 ```
