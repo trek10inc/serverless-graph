@@ -1,6 +1,6 @@
 {
   "name": "serverless-graph",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "engines": {
     "node": ">=4.0"
   },
@@ -30,7 +30,7 @@
     "test": "echo No tests here"
   },
   "dependencies": {
-    "cloudformation-graph": "^1.1.1",
-    "bluebird": "^3.0.6"
+    "bluebird": "^3.0.6",
+    "cloudformation-graph": "^1.1.3"
   }
 }
